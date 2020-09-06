@@ -7,6 +7,10 @@ app.get('/', (request, response) => {
     response.send('Hello World!')
 })
 
+app.get('/users', (request, response) => {
+    response.send([])
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port : http://localhost:${port}` )
 })
