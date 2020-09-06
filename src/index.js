@@ -23,6 +23,16 @@ app.post('/user', (request, response) => {
     response.send(user)
 })
 
+app.delete('/user/:id', (request, response) => {
+    if (typeof users[request.params.id] === 'undefined') {
+        response.status(204).end()
+    } else {
+        user = users[request.params.id]
+        users.splice(request.params.id, request.params.id + 1)
+        response.status(202).send(user)
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port : http://localhost:${port}` )
 })
